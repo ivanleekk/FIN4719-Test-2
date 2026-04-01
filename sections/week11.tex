@@ -1,0 +1,90 @@
+\section{Blockchain in Finance: The Competitive Landscape}
+
+\subsection{The Cross-Border Payment Problem \& Bitcoin's Solution}
+The legacy cross-border payment system (built in 1973) relies on correspondent
+banking, suffering from high costs ($\sim 6.25\%$), slow settlement (1-5
+business days), and the capital inefficiency of pre-funded Nostro/Vostro
+accounts.
+\begin{itemize}
+    \item \textbf{Bitcoin's Solution:} Bitcoin solves the problem of reaching consensus among
+          untrusted strangers (the Byzantine Generals Problem) by replacing a central
+          bookkeeper with a decentralized, cryptographically secured ledger.
+    \item \textbf{Key Mechanisms:}
+          \begin{itemize}
+              \item \textit{Identity \& Authorization:} Public/private key cryptography and digital
+                    signatures.
+              \item \textit{Immutability \& Ordering:} Each block contains the hash of the previous block.
+              \item \textit{Consensus (Mining):} Proof of Work (PoW) prevents Sybil attacks by requiring
+                    computational effort.
+              \item \textit{Double Spend Prevention:} Wait for 6 block confirmations.
+          \end{itemize}
+    \item \textbf{The Trade-off:} Bitcoin achieves permissionless, censorship-resistant,
+          trustless consensus but fails as an institutional payment rail due to low
+          throughput (3.3-7 TPS), massive energy consumption (1000+ kWh/tx), price
+          volatility, and pseudonymity (incompatible with KYC/AML).
+\end{itemize}
+
+\subsection{Permissionless vs. Permissioned Blockchains}
+\begin{itemize}
+    \item \textbf{Permissionless (e.g., Bitcoin, Ethereum):} Anyone can join/validate. Validators
+          are anonymous (miners/stakers). High decentralization but slow and lacks
+          KYC/AML.
+    \item \textbf{Permissioned (e.g., Ripple/XRPL, JPMorgan Kinexys):} Approved participants
+          only. Known, vetted validators. High speed, clear KYC/AML, but sacrifices pure
+          decentralization.
+\end{itemize}
+
+\subsection{The BIS Framework for System-Level Money}
+According to the Bank for International Settlements (BIS), any instrument
+claiming to function as system-level money must pass three tests:
+\begin{enumerate}
+    \item \textbf{Singleness:} Can it be accepted at par across the system? (1 unit always = 1
+          unit, regardless of issuer).
+    \item \textbf{Elasticity:} Can supply expand to meet payment demand (like credit lines)
+          without requiring 100\% pre-funding?
+    \item \textbf{Integrity:} Is there a functional, system-level KYC/AML layer to resist
+          financial crime?
+\end{enumerate}
+
+\subsection{Stablecoins, CBDCs, and XRP}
+\begin{itemize}
+    \item \textbf{Stablecoins:} Private-sector digital tokens pegged to fiat (e.g., USDT, USDC).
+          \begin{itemize}
+              \item \textit{BIS Verdict:} Fails Singleness (tokens are issuer-tagged), fails Elasticity
+                    (requires 100\% pre-funding, imposing a cash-in-advance constraint), and fails
+                    Integrity (pseudonymous bearer instruments).
+          \end{itemize}
+    \item \textbf{CBDCs (Central Bank Digital Currencies):} Digital liabilities of the central
+          bank.
+          \begin{itemize}
+              \item \textit{Retail CBDC:} Issued to the public (e.g., China's e-CNY). Risks
+                    disintermediating commercial banks.
+              \item \textit{Wholesale CBDC:} Issued only to financial institutions for interbank settlement
+                    (e.g., Project mBridge). Directly competes with correspondent banking.
+          \end{itemize}
+    \item \textbf{XRP (Ripple):} A bridge currency for cross-border settlement. It is neither a
+          stablecoin (price fluctuates), nor a CBDC, nor a decentralized permissionless
+          crypto. It operates on a private/permissioned network to eliminate
+          Nostro/Vostro pre-funding via instant (3-5 second) settlement.
+\end{itemize}
+
+\subsection{The Regulatory Frame: Who Gets to Play}
+Regulatory jurisdiction acts as a strategic variable that shapes the
+competitive landscape:
+\begin{itemize}
+    \item \textbf{US GENIUS Act (2025):} Strictly regulates stablecoins. Requires a 1:1 reserve
+          in liquid US assets (dollars, T-bills < 93 days), mandates monthly public
+          disclosures, prohibits paying yield/interest, and creates severe hurdles for
+          non-US issuers (like Tether), giving a structural advantage to US-domiciled
+          issuers like USDC.
+    \item \textbf{Singapore PSA (MAS):} An activity-based, principles-driven framework. Requires
+          a Major Payment Institution (MPI) license for cross-border transfers and
+          mandates 1:1 reserves for Single-Currency Stablecoins with strict Travel Rule
+          enforcement.
+    \item \textbf{The SEC vs. Ripple Case (The Howey Test):} The SEC sued Ripple alleging XRP was
+          an unregistered security.
+          \begin{itemize}
+              \item \textit{2023 Ruling:} XRP sold on public retail exchanges is \textbf{not} a security. XRP sold directly to institutional investors \textbf{is} a security.
+              \item \textit{2025 Resolution:} Settled with civil penalties; a permanent injunction on direct US institutional sales of XRP remains.
+          \end{itemize}
+\end{itemize}
