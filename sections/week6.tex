@@ -1,0 +1,59 @@
+\section{Week 6 -- AI in Finance \& NLP Fundamentals}
+
+\subsection{Foundations of Logic \& Reasoning}
+\begin{itemize}
+    \item \textbf{Deductive Logic:} Leads down; conclusion is guaranteed to be true.
+    \item \textbf{Inductive Logic:} Leads into; conclusion is probably true.
+    \item \textbf{Abductive Logic:} Leads away; conclusion is a best guess.
+\end{itemize}
+
+\subsection{The 5 Pillars of AI}
+\begin{itemize}
+    \item \textbf{Supervised:} Task-driven; predicts the next value based on labeled data.
+    \item \textbf{Unsupervised:} Data-driven; identifies underlying clusters and patterns.
+    \item \textbf{Reinforcement:} Utility-driven; learns from mistakes via trial and error.
+    \item \textbf{Transfer:} Reuse-driven; adapts a model trained on Task A for Task B.
+    \item \textbf{Deep Learning:} Self-learning; utilizes artificial neural networks.
+\end{itemize}
+
+\subsection{Large Language Models (LLMs) Training Pipeline}
+\begin{enumerate}
+    \item \textbf{Supervised Fine Tuning (SFT):} Collect demonstration data to train a supervised
+          policy. Human labelers demonstrate desired output behaviors from prompt
+          datasets.
+    \item \textbf{Reward Model (RM):} Collect comparison data and train a reward model. Labelers
+          rank several model outputs from best to worst.
+          \begin{equation*}
+              \text{Reward} = f(\text{prompts}, \text{responses}) \text{ }
+          \end{equation*}
+    \item \textbf{Reinforcement Learning:} Optimize the policy against the RM using Proximal
+          Policy Optimization (PPO). The model generates outputs, the RM calculates a
+          reward, and the policy updates to maximize rewards.
+\end{enumerate}
+
+\subsection{Ethical AI \& Governance}
+\begin{itemize}
+    \item \textbf{The Dark Side of AI:} Models can produce unfair outcomes, amplify data biases,
+          operate as a ``black box,'' and be difficult to explain.
+    \item \textbf{Regulatory Frameworks:} Solutions demand equitable decisions (managing impact
+          and scope), transparency (explainability and trade-offs), and evolvability
+          (balancing risks/rewards and human inputs).
+    \item \textbf{Al Automation Framework:} Ranges from ``Human-in-the-loop'' (user makes final
+          decision) to ``Human-over-the-loop'' (supervisory role) to
+          ``Human-out-of-the-loop'' (AI makes final decision autonomously).
+\end{itemize}
+
+\subsection{Natural Language Processing (NLP) Basics}
+\begin{itemize}
+    \item \textbf{Tokenization:} Transforming text into a series of word tokens, typically
+          removing punctuation.
+    \item \textbf{POS Tagging:} Attaching parts of speech (nouns, verbs) based on definitions and
+          adjacent context.
+    \item \textbf{Lemmatization:} Reducing words down to their base or dictionary form (lemma).
+    \item \textbf{N-grams:} Adjacent word tokens analyzed together (unigram, bigram, trigram).
+    \item \textbf{Sentiment Analysis:} Quantifying subjectivity (opinions, emotional tone) using
+          Lexicon-based approaches (manual/dictionary) or Machine Learning.
+    \item \textbf{Topic Modelling:} An unsupervised ML method that summarizes vast quantities of
+          text to find main ideas. It inputs a document collection and outputs
+          distributions of $k$ topics ($Z_1 \dots Z_k$) across each document.
+\end{itemize}
