@@ -1,0 +1,73 @@
+\section{Real Options and Digital Bets}
+
+\subsection{The Flaws of Traditional NPV}
+Traditional Net Present Value (NPV) analysis can systematically undervalue
+strategic projects because it relies on restrictive assumptions:
+\begin{itemize}
+    \item \textbf{Binary and Rigid:} Assumes decisions are made once upfront, with no ability to
+          review, detour, or exit.
+    \item \textbf{Uncertainty as the Enemy:} Higher uncertainty leads to a higher discount rate,
+          mathematically punishing the project's value.
+    \item \textbf{When NPV Fails:} NPV is ineffective when three conditions are present: high
+          uncertainty, staged investments, and management flexibility.
+\end{itemize}
+
+\subsection{Introduction to Real Options}
+A real option is the strategic equivalent of a financial option. It provides a
+company the right, but not the obligation, to undertake certain business
+initiatives, treating initial investments as a premium paid for future
+flexibility.
+\begin{itemize}
+    \item \textbf{Financial vs. Real Option Mapping:}
+          \begin{itemize}
+              \item \textbf{Stock Price ($S$):} Present Value (PV) of the project's future cash flows.
+              \item \textbf{Exercise Price ($X$):} Investment required to proceed with the next phase.
+              \item \textbf{Time to Expiry ($T$):} The window of time before a decision must be made.
+              \item \textbf{Volatility ($\sigma$):} The uncertainty of future cash flows (e.g., market
+                    risk).
+              \item \textbf{Risk-Free Rate ($r$):} The time value of money.
+              \item \textbf{Call Option Premium:} The value of the right to invest (managerial
+                    flexibility).
+          \end{itemize}
+\end{itemize}
+
+\subsection{Pricing Real Assets (Black-Scholes)}
+The Black-Scholes model can be adapted to calculate the strategic value of a
+real option: $$ c = S N(d_1) - X e^{-rT} N(d_2) $$
+\begin{itemize}
+    \item \textbf{Total Strategic Value:} A project's true value is its Standalone NPV plus the
+          Value of the Option. A project with a negative standalone NPV might still be a
+          ``Go'' if the strategic option value outweighs the initial cost.
+    \item $N(d_2)$ represents the risk-neutral probability of exercising the option.
+    \item $N(d_1)$ represents the delta, or how much the option value changes per \$1 change in the underlying asset's PV.
+\end{itemize}
+
+\subsection{The Role of Volatility}
+\begin{itemize}
+    \item \textbf{NPV view:} Volatility is a risk to be discounted away.
+    \item \textbf{Real Options view:} Volatility is an asset. The option to abandon truncates the
+          left tail (capping maximum loss at the initial stage cost), leaving only the
+          right tail (unlimited upside). Higher volatility widens the distribution,
+          capturing more potential upside and increasing the option's value.
+\end{itemize}
+
+\subsection{The Three Types of Real Options}
+\begin{itemize}
+    \item \textbf{Option to Expand (Offense):} A call option. Investing a smaller amount today to
+          access a much larger platform or market tomorrow if conditions are favorable.
+    \item \textbf{Option to Abandon (Defense):} A put option. The ``eject button'' to stop
+          funding and cap losses if the market crashes or tech fails.
+    \item \textbf{Option to Delay (Wait):} A timing option. Deferring the major build or
+          investment until critical uncertainties (e.g., regulatory frameworks) are
+          resolved.
+\end{itemize}
+
+\subsection{When to Use Real Options}
+Before using Real Options analysis over standard NPV, ensure three criteria are
+met:
+\begin{enumerate}
+    \item \textbf{Is the market environment highly uncertain?} (Volatility creates the asset).
+    \item \textbf{Can the investment be staged?} (Creating distinct decision gates).
+    \item \textbf{Will management exercise the discipline to abandon?} (The option is worthless
+          if leadership falls victim to sunk-cost bias and refuses to walk away).
+\end{enumerate}
