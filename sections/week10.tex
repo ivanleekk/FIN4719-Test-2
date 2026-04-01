@@ -1,0 +1,83 @@
+\section{Cryptography and Blockchain Foundations}
+
+Blockchain is not a single new technology; it is an architecture built by
+combining three foundational cryptographic primitives.
+
+\subsection{Primitive 1: Encryption and Decryption}
+Encryption secures communication between parties who may have never met,
+ensuring unauthorized eavesdroppers cannot read the data.
+\begin{itemize}
+    \item \textbf{Symmetric Encryption:} The same key is used to both encrypt and decrypt (e.g.,
+          Caesar cipher).
+          \begin{itemize}
+              \item \textit{Fatal Flaw:} The key distribution problem. Both parties must securely agree on
+                    the key beforehand without it being intercepted.
+          \end{itemize}
+    \item \textbf{Asymmetric Encryption (Public Key Cryptography):} Uses two mathematically
+          linked keys.
+          \begin{itemize}
+              \item \textbf{Public Key:} Broadcasted freely; used by others to \textit{encrypt} messages sent to you.
+              \item \textbf{Private Key:} Kept entirely secret; used by you to \textit{decrypt} those messages.
+              \item \textit{The Math:} Relies on a ''trapdoor'' function (like ECDSA) that is trivial to
+                    compute in one direction but computationally infeasible to reverse (e.g., the
+                    Bitcoin keyspace is $2^{256}$).
+          \end{itemize}
+\end{itemize}
+
+\subsection{Primitive 2: Cryptographic Hashing}
+Hashing turns any message (of any length) into a fixed-length fingerprint. It
+is used to prove you know something without revealing it (e.g., committing to a
+prediction).
+\begin{itemize}
+    \item \textbf{5 Key Properties of a Cryptographic Hash:}
+          \begin{enumerate}
+              \item \textbf{Deterministic:} The same input always produces the exact same output.
+              \item \textbf{Computable:} Easy to compute forward.
+              \item \textbf{Pre-image Resistance:} Hard to reverse (one-way function).
+              \item \textbf{Avalanche Effect:} A small change in input completely changes the output.
+              \item \textbf{Collision Resistance:} Infeasible to find two different inputs that produce the
+                    same output.
+          \end{enumerate}
+    \item \textbf{Algorithms:} SHA-256 (industry standard, 64 hex characters) vs. MD5 (broken and
+          deprecated, as collisions can be generated in seconds).
+\end{itemize}
+
+\subsection{Primitive 3: Digital Signatures}
+Digital signatures prove that you authored a message and that it hasn't been
+altered, completely removing the need for a trusted third party (like a
+notary).
+\begin{itemize}
+    \item \textbf{Sign:} Message + Private Key $\rightarrow$ Digital Signature.
+    \item \textbf{Verify:} Message + Digital Signature + Public Key $\rightarrow$ Valid /
+          Invalid.
+    \item \textbf{The Bitcoin Shift:} In traditional banking, an account exists because a bank's
+          database says so. In Bitcoin, ownership is proven mathematically. You control
+          an address solely because you can produce a valid digital signature for it.
+\end{itemize}
+
+\subsection{The Synthesis: Blockchain Architecture}
+When combined, these three primitives allow a network of untrusted parties to
+transact with mathematical certainty:
+\begin{itemize}
+    \item \textbf{Identity:} Asymmetric keys establish identity (Public Key = Address).
+    \item \textbf{Authorization:} Digital signatures authorize transactions.
+    \item \textbf{Immutability:} Hashing links blocks together. Any tampering alters the hash,
+          breaking all subsequent links in the chain.
+\end{itemize}
+
+\subsection{Implementation: When to Use Blockchain}
+Blockchain is not a universal solution for digitization. A well-designed
+centralized database is usually cheaper and faster unless the scenario passes
+the \textbf{Boaventura Test}. Consider blockchain if you answer ''yes'' to most of the
+following:
+\begin{enumerate}
+    \item Is the process predominantly cross-organizational?
+    \item Are there cross-system discrepancies slowing the business?
+    \item Is trust incomplete among transacting parties?
+    \item Are intermediaries adding excessive cost, risk, or delay?
+    \item Does the current system require periodic offline reconciliation?
+    \item Is there a critical need for an immutable audit trail?
+\end{enumerate}
+\textit{Note on Vulnerabilities:} The cryptography itself (like SHA-256) rarely fails.
+Breaches almost always occur at the human layer: poor key management, phishing,
+social engineering, or logic bugs written into smart contracts.
