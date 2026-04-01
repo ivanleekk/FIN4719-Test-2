@@ -1,0 +1,91 @@
+\section{Money and Digital Payments}
+
+\subsection{The Evolution and Taxonomy of Money}
+Money has evolved through several stages, each answering the question of why a
+stranger should accept it for exchange:
+\begin{itemize}
+    \item \textbf{Barter:} Direct exchange of goods.
+    \item \textbf{Commodity \& Gold:} Trust comes from intrinsic value, scarcity, and physical
+          verifiability.
+    \item \textbf{Metal Coins:} Standardized units where trust relies on the sovereign's stamp.
+    \item \textbf{Paper Money:} Portable notes initially trusted via convertibility promises, and
+          later by central bank authority.
+    \item \textbf{Bank Deposits \& Plastic Cards:} Electronic access where trust is derived from
+          deposit insurance and regulatory oversight.
+\end{itemize}
+
+The ''Money Flower'' taxonomy classifies money across four dimensions:
+\begin{enumerate}
+    \item \textbf{Issuer:} Central bank versus private/other issuers.
+    \item \textbf{Form:} Digital versus physical.
+    \item \textbf{Accessibility:} Widely accessible (universal) versus restricted (wholesale).
+    \item \textbf{Technology:} Token-based (value-based) versus account-based.
+\end{enumerate}
+
+\subsection{Properties of Physical Cash}
+Physical cash possesses four unique properties that digital systems struggle to
+replicate perfectly:
+\begin{itemize}
+    \item \textbf{Peer-to-peer:} No third party is required to authorize or record the
+          transaction.
+    \item \textbf{Censorship-resistant:} No one can block a transaction between two willing
+          parties.
+    \item \textbf{Final settlement:} When the note is handed over, the transaction is immediately
+          complete without clearing delays or reversals.
+    \item \textbf{No double spending:} It is impossible to hand the exact same physical note to
+          two different people.
+\end{itemize}
+
+\subsection{The Mechanics of Payments}
+Payments flow differently depending on the institutional boundaries crossed:
+\begin{itemize}
+    \item \textbf{Same Bank:} Cleared internally via a simple ''book transfer'' across the bank's
+          own ledgers.
+    \item \textbf{Different Banks:} Handled via correspondent bank accounts (Nostros) or Central
+          Bank accounts.
+    \item \textbf{Cross-border (Same Currency):} Requires a correspondent banking chain since
+          there is no single global clearing house.
+    \item \textbf{Foreign Exchange (FX):} Requires currency conversion, which can be done by the
+          payer's bank, the payee's bank, or a third-party platform (like Transferwise).
+\end{itemize}
+
+\subsection{Central Bank Settlement Systems}
+When moving money between different commercial banks, central banks act as the
+''banker's bank'' using two primary systems:
+\begin{itemize}
+    \item \textbf{Deferred Net Settlement (DNS):} Payments are queued and netted off as a single
+          payment at the end of a period. This is highly capital efficient but allows
+          systemic credit risk to build up during the delay.
+    \item \textbf{Real Time Gross Settlement (RTGS):} Every payment is settled independently and
+          immediately in real-time. This eliminates delay risk but is much less capital
+          efficient for banks.
+\end{itemize}
+
+\subsection{Pain Points and the Incumbent System}
+While domestic same-bank transfers are instant and nearly free, cross-border
+and FX payments are highly inefficient:
+\begin{itemize}
+    \item \textbf{Latency \& Cost:} Cross-border payments can take 48+ hours and cost an average
+          of 6.25\% of the transaction value.
+    \item \textbf{Why Frictions Persist:}
+          \begin{enumerate}
+              \item \textit{Network Effects:} SWIFT connects over 11,000 institutions in 200 countries,
+                    making wholesale replacement incredibly difficult.
+              \item \textit{Regulatory Fragmentation:} Payment infrastructure remains sovereign.
+              \item \textit{Incumbent Incentives:} The systemic frictions (correspondent fees, FX spreads)
+                    act as a primary revenue model for existing banks.
+          \end{enumerate}
+\end{itemize}
+
+\subsection{The Digital Problem and Solutions}
+The fundamental flaw of digital money is the \textbf{Double-Spending Problem}: digital assets are trivially copyable, unlike
+physical assets. To prevent someone from sending the same digital file to two
+people, systems rely on two main architectures:
+\begin{itemize}
+    \item \textbf{Trusted Intermediary:} A central authority (like Visa, SWIFT, or a bank)
+          maintains the definitive ledger. While it prevents double spending, it
+          introduces fees, latency, and single points of failure.
+    \item \textbf{Decentralised Consensus:} The network collectively maintains the ledger
+          cryptographically (e.g., blockchain). It removes the central authority but
+          introduces high complexity, governance challenges, and energy costs.
+\end{itemize}
