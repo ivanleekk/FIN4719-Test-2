@@ -1,0 +1,127 @@
+\section{Week 5 -- Monte Carlo Simulation}
+Monte Carlo simulation is used to simulate the behaviour of large systems by
+sampling from the underlying probability distributions. It is a powerful tool
+for solving complex problems that are difficult to solve analytically. In
+finance, Monte Carlo simulation is commonly used for option pricing, risk
+management, and portfolio optimization.
+
+Especially useful where no closed-form solution exists, or when the problem is
+too complex for analytical methods. It allows us to model and analyze systems
+with a large number ofuncertainties and variables.
+
+\textbf{Law of Large Numbers:} As the number of simulations increases, the average of
+the simulated outcomes will converge to the expected value of the underlying
+distribution.
+
+$$\lim_{N \to \infty} \frac{1}{N} \sum_{i=1}^{N} X_i = \mathbb{E}[X]$$
+The sample mean of the simulated outcomes will converge to the population mean as the number of simulations increases.
+
+\textbf{Central Limit Theorem:} The distribution of the sample mean of a large number
+of independent and identically distributed random variables will approximate a
+normal distribution, regardless of the underlying distribution.
+
+\textbf{Outcomes:} The results of the simulations can be used to estimate
+probabilities, expected values, and other statistics of interest. The outcomes
+can be visualized using histograms, scatter plots, or other types of charts to
+gain insights into the behaviour of the system being simulated.
+
+\begin{enumerate}
+    \item \textbf{Define Domain:} Identify the problem you want to solve and define the domain of
+          the simulation. This includes specifying the variables, parameters, and the
+          range of possible values for each variable.
+    \item \textbf{Generate Random Inputs:} Use random number generators to create random inputs
+          for the simulation. These inputs should be drawn from the appropriate
+          probability distributions that represent the uncertainties in the system.
+    \item \textbf{Run Simulations:} Execute the simulation by running a large number of
+          iterations. For each iteration, use the random inputs to calculate the outcome
+          of the system based on the defined model or equations. This step is
+          deterministic, as it follows a specific set of rules or equations to produce an
+          outcome. The randomness comes from the random inputs generated in the previous
+          step.
+    \item \textbf{Analyze Results:} Use statistical methods to analyze the results of the
+          simulations. This may include calculating means, variances, confidence
+          intervals, or other relevant statistics. The outcomes can be visualized using
+          histograms, scatter plots, or other types of charts to gain insights into the
+          behaviour of the system being simulated.
+\end{enumerate}
+
+The accuracy of Monte Carlo simulation depends on the number of iterations and
+the quality of the random inputs. More iterations generally lead to more
+accurate results, but also require more computational resources. It is
+important to balance the trade-off between accuracy and computational
+efficiency when using Monte Carlo simulation.
+
+Error decreases with the square root of the number of simulations, meaning that
+to reduce the error by half, you need to quadruple the number of simulations.
+This is known as the \textbf{square root law} of Monte Carlo simulation. Therefore, while increasing the
+number of simulations can improve accuracy, it may not always be practical due
+to computational constraints. In such cases, variance reduction techniques can
+be employed to improve the efficiency of the simulation without necessarily
+increasing the number of iterations.
+
+$$\text{Error} \propto \frac{1}{\sqrt{N}}$$
+
+The 95\% confidence interval for the estimated mean can be calculated using the
+formula: $$\text{95\% CI} = \bar{X} \pm 1.96 \times \frac{\sigma}{\sqrt{N}}$$
+where $\bar{X}$ is the sample mean, $\sigma$ is the standard deviation of the
+sample, $N$ is the number of simulations, and $\frac{\sigma}{\sqrt{N}}$ is the
+standard error. This interval provides a range within which we can be 95\%
+confident that the true population mean lies.
+
+\textbf{Monte Carlo Failure:} Monte Carlo simulation can fail to provide accurate
+results if the necessary conditions are not met.
+
+The necessary conditions for Monte Carlo simulation to work effectively
+include:
+\begin{enumerate}
+    \item Proper distribution that matches the underlying process being simulated.
+    \item Independece of simulations, ensuring that each simulation is independent of the
+          others.
+    \item Sufficient number of simulations to achieve the desired level of accuracy.
+    \item Accurate model that correctly represents the system being simulated. If the
+          formula or model used in the simulation is incorrect, the results will be
+          unreliable regardless of the number of simulations.
+\end{enumerate}
+
+Note: The experience of any single path the simulation has taken can vary
+wildy, and may not be representative of the overall distribution. Therefore, it
+is important to run a large number of simulations to ensure that the results
+are reliable and representative of the underlying distribution.
+
+\subsection{Finance uses}
+\textbf{Asian Options:} Monte Carlo simulation can be used to price Asian options,
+which are options where the payoff depends on the average price of the
+underlying asset over a certain period of time. The simulation can be used to
+generate multiple price paths for the underlying asset, and the average price
+can be calculated for each path to determine the payoff of the option. This
+uses the Geometric Brownian Motion (GBM) model to simulate the price paths of
+the underlying asset. The GBM model assumes that the price of the asset follows
+a stochastic process with a constant drift and volatility. The formula for
+simulating the price path of the asset is given by: $$S_{t+\Delta t} = S_t
+    \exp\left((\mu - \frac{1}{2} \sigma^2) \Delta t + \sigma \sqrt{\Delta t}
+    Z\right)$$ where $S_t$ is the price of the asset at time $t$, $\mu$ is the
+drift, $\sigma$ is the volatility, $\Delta t$ is the time step, and $Z$ is a
+standard normal random variable. $-\frac{1}{2} \sigma^2$ is the Ito correction
+term that accounts for the volatility of the asset, ensuring that the expected
+value of the simulated price paths matches the actual expected value of the
+asset price.
+
+\textbf{European Options:} While Black-Scholes model exists, we can also get the price
+of an option via Monte Carlo simulation and check against Black-Scholes to
+determine if our simulation is accurate and successful.
+
+For a call option with strike price $K$, the payoff at maturity is given by:
+$$\text{Payoff} = \max(S_T - K, 0)$$ where $S_T$ is the price of the underlying
+asset at maturity. To price the option using Monte Carlo simulation, we can
+simulate multiple price paths for the underlying asset using the GBM model,
+calculate the payoff for each path, and then take the average of the payoffs to
+estimate the option price. The estimated option price can be calculated using
+the formula: $$\text{Option Price} = e^{-rT} \times \frac{1}{N} \sum_{i=1}^{N}
+    \text{Payoff}_i$$ where $r$ is the risk-free interest rate, $T$ is the time to
+maturity, $N$ is the number of simulations, and $\text{Payoff}_i$ is the payoff
+for the $i$-th simulated price path. The estimated option price can then be
+compared to the price obtained from the Black-Scholes model to assess the
+accuracy of the Monte Carlo simulation. If the estimated price is close to the
+Black-Scholes price, it suggests that the Monte Carlo simulation is successful
+in capturing the dynamics of the underlying asset and providing a reasonable
+estimate of the option price.
